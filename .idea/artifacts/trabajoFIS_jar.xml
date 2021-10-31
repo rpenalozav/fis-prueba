@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="trabajoFIS:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/trabajoFIS_jar</output-path>
+    <root id="archive" name="trabajoFIS.jar">
+      <element id="module-output" name="trabajoFIS" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libraries/jfreechart-1.0.19.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libraries/jFuzzyLogic_core.jar" path-in-jar="/" />
+      <element id="archive" name="archive.jar">
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+        </element>
+      </element>
+      <element id="directory" name="folder" />
+    </root>
+  </artifact>
+</component>
