@@ -298,11 +298,11 @@ public class PropinaUI extends javax.swing.JFrame {
         double humedad = Double.parseDouble(comidaTextField2.getText().replace(",", "."));
         double temperatura = Double.parseDouble(comidaTextField3.getText().replace(",", "."));
         double radiacion = Double.parseDouble(comidaTextField4.getText().replace(",", "."));
-        double nutriententes = Double.parseDouble(comidaTextField5.getText().replace(",", "."));
-        System.out.println(color + " " + humedad + " " + temperatura + " " + radiacion + " " + nutriententes);
-        Integer servicio = 5;
+        double concentracion = Double.parseDouble(comidaTextField5.getText().replace(",", "."));
+//        System.out.println(color + " " + humedad + " " + temperatura + " " + radiacion + " " + nutriententes);
+//        Integer servicio = 5;
 
-        resultadoTextArea.setText(resultados.calcularPropina(5, servicio));
+        resultadoTextArea.setText(resultados.calcularPropina(color,humedad,temperatura,radiacion,concentracion));
     }
 
     private void salirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirButtonActionPerformed

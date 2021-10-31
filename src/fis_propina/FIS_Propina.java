@@ -12,10 +12,10 @@ public class FIS_Propina {
 
     }
 
-    public String calcularPropina(double comida, int servicio) {
+    public String calcularPropina(double color, double humedad, double temperatura, double radiacion, double concentracion) {
 
         // Carga el archivo de lenguaje de control difuso 'FCL'
-        String fileName = "src/fis_propina/FCL_Propina.fcl";
+        String fileName = "src/fis_propina/FCL_hydroponic_health.fcl";
         FIS fis = FIS.load(fileName, true);
 
         // En caso de error
@@ -25,8 +25,11 @@ public class FIS_Propina {
         }
 
         // Establecer las entradas del sistema
-        fis.setVariable("servicio", servicio);
-        fis.setVariable("comida", comida);
+        fis.setVariable("color", color);
+        fis.setVariable("humedad", humedad);
+        fis.setVariable("temperatura", temperatura);
+        fis.setVariable("radiacion", radiacion);
+        fis.setVariable("concentracion", concentracion);
 
         // Inicia el funcionamiento del sistema
         fis.evaluate();
@@ -41,7 +44,9 @@ public class FIS_Propina {
         */
 
         // Imprime el valor concreto de salida del sistema
-        double salida = fis.getVariable("propina").getLatestDefuzzifiedValue();
+        double salida1 = fis.getVariable("enfermedad").getLatestDefuzzifiedValue();
+        double salida2 = fis.getVariable("calidad").getLatestDefuzzifiedValue();
+        double salida3 = fis.getVariable("crecimiento").getLatestDefuzzifiedValue();
 
         // Muestra cuanto peso tiene la variable de salida en cada CD de salida
         double pertenenciaBaja = fis.getVariable("propina").getMembership("baja");
@@ -69,7 +74,7 @@ public class FIS_Propina {
             reglasUsadas.append(r.toString()).append("\n");
         });
 
-        return ("Porcentaje de propina: " + String.format("%.1f", salida) + "%" +
+        return ("Porcentaje de propina: " + String.format("%.1f", salida1) + "%" +
                 "\n\n" + "Se recomienda dar una propina " + recomendacion +
                 "\n\n" + reglasUsadas.toString());
     }
