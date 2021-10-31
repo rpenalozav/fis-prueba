@@ -1,0 +1,107 @@
+FUNCTION_BLOCK prop
+
+VAR_INPUT				
+        color : REAL; RANGE := (0 .. 100);
+        humedad : REAL; RANGE := (0 .. 100);
+        temperatura : REAL; RANGE := (10 .. 60);
+        radiacion : REAL; RANGE := (10 .. 30);
+        concentracion : REAL; RANGE := (0 .. 100);
+END_VAR
+
+VAR_OUTPUT				
+        enfermedad : REAL; RANGE := (0 .. 100);
+        calidad : REAL; RANGE := (0 .. 100);
+        crecimiento : REAL; RANGE := (0 .. 100);
+END_VAR
+
+FUZZIFY color
+        TERM palido := trape -20 -10 10 30;
+        TERM normal := trape 20 35 65 80;
+        TERM intenso := trape 70 80 104.2 137.5;
+END_FUZZIFY
+
+FUZZIFY humedad
+        TERM baja := gauss 0 17.7;
+        TERM mediana := gauss 50 17.7;
+        TERM alta := gauss 100 17.7;
+END_FUZZIFY
+
+FUZZIFY temperatura
+        TERM baja := gauss 10 12;
+        TERM mediana := gauss 35 10;
+        TERM alta := gauss 60 12;
+END_FUZZIFY
+
+FUZZIFY radiacion
+        TERM baja := gauss 10 2;
+        TERM mediana := gauss 20 5;
+        TERM deliciosa := gauss 30 4;
+END_FUZZIFY
+
+FUZZIFY concentracion
+        TERM pobre := trape -37.5 -4.167 20 40;
+        TERM suficiente := trape 20 40 60 80;
+        TERM saturada := trape 60 80 108.1 133.6;
+END_FUZZIFY
+
+DEFUZZIFY enfermedad
+        TERM nulo := trape -37.5 -4.167 10 40;
+        TERM leve := trape 10 40 60 90;
+        TERM grave := trape 60 90 104.2 137.5;
+        METHOD : COG;	
+        DEFAULT := 0;
+END_DEFUZZIFY
+
+DEFUZZIFY calidad
+        TERM mala := trape -37.5 -4.167 40 60;
+        TERM buena := trape 40 60 104.2 137.5;
+        METHOD : COG;
+        DEFAULT := 0;
+END_DEFUZZIFY
+
+DEFUZZIFY crecimiento
+        TERM lenta := trape -52.98 -5.887 20 70;
+        TERM rapida := trape 30 80 111.8 205.9;
+        METHOD : COG;
+        DEFAULT := 0;
+END_DEFUZZIFY
+
+RULEBLOCK No1
+        AND : MIN;
+        ACT : MIN;
+        ACCU : MAX;
+
+        RULE 1 : IF (color IS palido)
+                THEN enfermedad IS grave;
+        RULE 2 : IF (humedad IS mediana)
+                THEN calidad IS buena;
+        RULE 3 : IF (temperatura IS baja)
+                THEN crecimiento IS lenta;
+        RULE 4 : IF (radiacion IS mediana)
+                THEN crecimiento IS rapida;
+        RULE 5 : IF (concentracion IS suficiente)
+                THEN enfermedad IS nulo;
+        RULE 6 : IF (color IS intenso) and (concentracion IS saturada)
+                THEN enfermedad IS nulo;
+        RULE 7 : IF (humedad IS mediana) AND (radiacion IS baja)
+                THEN crecimiento IS lenta;
+        RULE 8 : IF (temperatura IS baja) AND (concentracion IS suficiente)
+                THEN calidad IS buena;
+        RULE 9 : IF (concentracion IS pobre)
+                THEN crecimiento IS lenta;
+        RULE 10 : IF (color IS intenso)
+                THEN calidad IS buena;
+        RULE 11 : IF (radiacion IS alta)
+                THEN calidad IS mala;
+        RULE 12 : IF (humedad IS mediana) and (temperatura IS mediana)
+                THEN calidad IS buena;
+        RULE 13 : IF (humedad IS mediana) AND (radiacion IS baja)
+                THEN crecimiento IS lenta;
+        RULE 14 : IF (humedad IS baja) AND (concentracion IS pobre)
+                THEN enfermedad IS grave;
+        RULE 15 : IF (humedad IS alta) AND (radiacion IS alta)
+                THEN calidad IS mala;
+
+END_RULEBLOCK
+
+END_FUNCTION_BLOCK
