@@ -67,12 +67,6 @@ public class PropinaUI extends javax.swing.JFrame {
             bannerLabel.setForeground(new Color(0, 153, 204));
             bannerLabel.setText("Hidroponia-FIS");
 
-            //---- msj1Label ----
-            msj1Label.setText("Califique de cero a diez (siendo cero de lo peorcito y diez espectacular),");
-
-            //---- msj2Label ----
-            msj2Label.setText("la calidad del servicio y la comida:");
-
             //---- comidaLabel ----
             comidaLabel.setText("Color de la planta:");
 

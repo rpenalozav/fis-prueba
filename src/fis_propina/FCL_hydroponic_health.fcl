@@ -35,7 +35,7 @@ END_FUZZIFY
 FUZZIFY radiacion
         TERM baja := gauss 10 2;
         TERM mediana := gauss 20 5;
-        TERM deliciosa := gauss 30 4;
+        TERM alta := gauss 30 4;
 END_FUZZIFY
 
 FUZZIFY concentracion

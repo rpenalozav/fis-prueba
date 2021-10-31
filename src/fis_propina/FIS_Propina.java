@@ -48,23 +48,48 @@ public class FIS_Propina {
         double salida2 = fis.getVariable("calidad").getLatestDefuzzifiedValue();
         double salida3 = fis.getVariable("crecimiento").getLatestDefuzzifiedValue();
 
+        // Muestra cuanto peso tiene la variable de salida
+        double pertenencia1 = fis.getVariable("enfermedad").getMembership("nulo");
+        double pertenencia2 = fis.getVariable("enfermedad").getMembership("leve");
+        double pertenencia3 = fis.getVariable("enfermedad").getMembership("grave");
+
+        String recomendacion1 = "";
+
+        if (pertenencia1 >= pertenencia2 &&
+                pertenencia1 >= pertenencia3){
+
+            recomendacion1 = "nulo";
+        } else if (pertenencia2 >= pertenencia1 &&
+                pertenencia2 >= pertenencia3){
+            recomendacion1 = "leve";
+        } else if (pertenencia3 >= pertenencia1 &&
+                pertenencia3 >= pertenencia2){
+            recomendacion1 = "grave";
+        }
+
         // Muestra cuanto peso tiene la variable de salida en cada CD de salida
-        double pertenenciaBaja = fis.getVariable("propina").getMembership("baja");
-        double pertenenciaPromedio = fis.getVariable("propina").getMembership("promedio");
-        double pertenenciaGenerosa = fis.getVariable("propina").getMembership("generosa");
+        pertenencia1 = fis.getVariable("calidad").getMembership("mala");
+        pertenencia2 = fis.getVariable("calidad").getMembership("buena");
+        String recomendacion2 = "";
 
-        String recomendacion = "";
+        if (pertenencia1 >= pertenencia2){
 
-        if (pertenenciaBaja >= pertenenciaPromedio &&
-                pertenenciaBaja >= pertenenciaGenerosa){
+            recomendacion2 = "mala";
+        } else if (pertenencia2 >= pertenencia1){
+            recomendacion2 = "buena";
+        }
 
-            recomendacion = "baja";
-        } else if (pertenenciaPromedio >= pertenenciaBaja &&
-                pertenenciaPromedio >= pertenenciaGenerosa){
-            recomendacion = "promedio";
-        } else if (pertenenciaGenerosa >= pertenenciaBaja &&
-                pertenenciaGenerosa >= pertenenciaPromedio){
-            recomendacion = "generosa";
+        // Muestra cuanto peso tiene la variable de salida en cada CD de salida
+        pertenencia1 = fis.getVariable("crecimiento").getMembership("lenta");
+        pertenencia2 = fis.getVariable("crecimiento").getMembership("rapida");
+
+        String recomendacion3 = "";
+
+        if (pertenencia1 >= pertenencia2){
+
+            recomendacion3 = "lenta";
+        } else if (pertenencia2 >= pertenencia1){
+            recomendacion3 = "rapida";
         }
 
         // Muestra las reglas activadas y el valor de salida de cada una despues de aplicar las operaciones lógicas
@@ -74,8 +99,16 @@ public class FIS_Propina {
             reglasUsadas.append(r.toString()).append("\n");
         });
 
-        return ("Porcentaje de propina: " + String.format("%.1f", salida1) + "%" +
-                "\n\n" + "Se recomienda dar una propina " + recomendacion +
-                "\n\n" + reglasUsadas.toString());
+        String respuesta1 = "Porcentaje de enfermedad: " + String.format("%.1f", salida1) + "%" +
+                "\n\n" + "Se encuentra en un estado " + recomendacion1 +
+                "\n\n" + reglasUsadas.toString() + "\n\n";
+        String respuesta2 = "Porcentaje de calidad: " + String.format("%.1f", salida2) + "%" +
+                "\n\n" + "Se encuentra en un estado " + recomendacion2 +
+                "\n\n" + reglasUsadas.toString() + "\n\n";
+        String respuesta3 = "Porcentaje de crecimiento: " + String.format("%.1f", salida3) + "%" +
+                "\n\n" + "Se encuentra en un estado " + recomendacion3 +
+                "\n\n" + reglasUsadas.toString() + "\n\n";
+
+        return (respuesta1+respuesta2+respuesta3);
     }
 }
