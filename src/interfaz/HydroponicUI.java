@@ -6,20 +6,20 @@ import javax.swing.GroupLayout;
 import javax.swing.JOptionPane;
 import javax.swing.LayoutStyle;
 import javax.swing.border.*;
-import fis_propina.FIS_Propina;
+import fis_hydroponic.FIS_hydroponic;
 
 /**
  *
  * @author amomo
  */
-public class PropinaUI extends javax.swing.JFrame {
+public class HydroponicUI extends javax.swing.JFrame {
 
-    FIS_Propina resultados = new FIS_Propina();
+    FIS_hydroponic resultados = new FIS_hydroponic();
 
     /**
      * Creates new form PropinaUI
      */
-    public PropinaUI() {
+    public HydroponicUI() {
         initComponents();
     }
 
@@ -305,18 +305,18 @@ public class PropinaUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PropinaUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HydroponicUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PropinaUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HydroponicUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PropinaUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HydroponicUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PropinaUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HydroponicUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PropinaUI().setVisible(true);
+                new HydroponicUI().setVisible(true);
             }
         });
     }

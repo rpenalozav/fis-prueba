@@ -1,13 +1,13 @@
-package fis_propina;
+package fis_hydroponic;
 
-import interfaz.PropinaUI;
+import interfaz.HydroponicUI;
 import net.sourceforge.jFuzzyLogic.FIS;
 import net.sourceforge.jFuzzyLogic.plot.JFuzzyChart;
 
-public class FIS_Propina {
+public class FIS_hydroponic {
     public static void main(String[] args) {
 
-        PropinaUI p = new PropinaUI();
+        HydroponicUI p = new HydroponicUI();
         p.setVisible(true);
 
     }
@@ -15,7 +15,7 @@ public class FIS_Propina {
     public String calcularSalud(double color, double humedad, double temperatura, double radiacion, double concentracion) {
 
         // Carga el archivo de lenguaje de control difuso 'FCL'
-        String fileName = "src/fis_propina/FCL_hydroponic_health.fcl";
+        String fileName = "src/fis_hydroponic/FCL_hydroponic_health.fcl";
         FIS fis = FIS.load(fileName, true);
 
         // En caso de error
