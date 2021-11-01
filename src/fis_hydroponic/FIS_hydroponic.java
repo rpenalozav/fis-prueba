@@ -99,10 +99,10 @@ public class FIS_hydroponic {
                 "\n\n" + "Se encuentra en un estado " + recomendacion1 +
                 "\n\n" + reglasUsadas.toString() + "\n\n";
         String respuesta2 = "Porcentaje de calidad: " + String.format("%.1f", salida2) + "%" +
-                "\n\n" + "Se encuentra en un estado " + recomendacion2 +
+                "\n\n" + "Tiene una calidad " + recomendacion2 +
                 "\n\n" + reglasUsadas.toString() + "\n\n";
         String respuesta3 = "Porcentaje de crecimiento: " + String.format("%.1f", salida3) + "%" +
-                "\n\n" + "Se encuentra en un estado " + recomendacion3 +
+                "\n\n" + "Tienen una velocidad de crecimiento " + recomendacion3 +
                 "\n\n" + reglasUsadas.toString() + "\n\n";
 
         return (respuesta1+respuesta2+respuesta3);
