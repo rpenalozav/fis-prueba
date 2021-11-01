@@ -16,9 +16,7 @@ public class HydroponicUI extends javax.swing.JFrame {
 
     FIS_hydroponic resultados = new FIS_hydroponic();
 
-    /**
-     * Creates new form PropinaUI
-     */
+
     public HydroponicUI() {
         initComponents();
     }
@@ -91,7 +89,7 @@ public class HydroponicUI extends javax.swing.JFrame {
                 jScrollPane1.setViewportView(resultadoTextArea);
             }
 
-            humedadLabel.setText("Humedad:");
+            humedadLabel.setText("Humedad (0%-100%):");
 
             humedadTextField.addActionListener(e -> hydroponicTextFieldActionPerformed(e));
             humedadTextField.addKeyListener(new KeyAdapter() {
@@ -101,7 +99,7 @@ public class HydroponicUI extends javax.swing.JFrame {
                 }
             });
 
-            temperaturaLabel.setText("Temperatura:");
+            temperaturaLabel.setText("Temperatura (10°C-60°C):");
 
             temperaturaTextField3.addActionListener(e -> hydroponicTextFieldActionPerformed(e));
             temperaturaTextField3.addKeyListener(new KeyAdapter() {
@@ -111,7 +109,7 @@ public class HydroponicUI extends javax.swing.JFrame {
                 }
             });
 
-            radiacionLabel.setText("Radiacion solar:");
+            radiacionLabel.setText("Radiacion solar (10%-30%):");
 
             radiacionTextField.addActionListener(e -> hydroponicTextFieldActionPerformed(e));
             radiacionTextField.addKeyListener(new KeyAdapter() {
@@ -283,8 +281,7 @@ public class HydroponicUI extends javax.swing.JFrame {
         double temperatura = Double.parseDouble(temperaturaTextField3.getText().replace(",", "."));
         double radiacion = Double.parseDouble(radiacionTextField.getText().replace(",", "."));
         double concentracion = Double.parseDouble(concentracionTextField.getText().replace(",", "."));
-//        System.out.println(color + " " + humedad + " " + temperatura + " " + radiacion + " " + nutriententes);
-//        Integer servicio = 5;
+
 
         resultadoTextArea.setText(resultados.calcularSalud(color,humedad,temperatura,radiacion,concentracion));
     }

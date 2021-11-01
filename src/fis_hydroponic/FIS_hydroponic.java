@@ -37,11 +37,7 @@ public class FIS_hydroponic {
         // Muestra los gráficos de las variables de entrada y salida
         JFuzzyChart.get().chart(fis.getFunctionBlock("prop"));
 
-        /*
-        // Muestra el conjunto difuso sobre el que se calcula el COG
-        Variable tip = fis.getVariable("propina");
-        JFuzzyChart.get().chart(tip, tip.getDefuzzifier(), true);
-        */
+
 
         // Imprime el valor concreto de salida del sistema
         double salida1 = fis.getVariable("enfermedad").getLatestDefuzzifiedValue();
