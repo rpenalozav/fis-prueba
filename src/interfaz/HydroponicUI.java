@@ -63,9 +63,9 @@ public class HydroponicUI extends javax.swing.JFrame {
             //---- bannerLabel ----
             bannerLabel.setFont(new Font("Impact", Font.BOLD, 48));
             bannerLabel.setForeground(new Color(0, 153, 204));
-            bannerLabel.setText("Hidroponia-FIS");
+            bannerLabel.setText("FIS_Hydroponic_health");
 
-            colorLabel.setText("Color de la planta:");
+            colorLabel.setText("Color de la planta (0%-100%):");
 
             colorTextField.addActionListener(e -> hydroponicTextFieldActionPerformed(e));
             colorTextField.addKeyListener(new KeyAdapter() {
@@ -119,7 +119,7 @@ public class HydroponicUI extends javax.swing.JFrame {
                 }
             });
 
-            concentracionLabel.setText("Concentracion de nutrientes y minerales:");
+            concentracionLabel.setText("Concentracion de nutrientes y minerales (0%-100%):");
 
             concentracionTextField.addActionListener(e -> hydroponicTextFieldActionPerformed(e));
             concentracionTextField.addKeyListener(new KeyAdapter() {
