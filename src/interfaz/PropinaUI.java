@@ -35,19 +35,19 @@ public class PropinaUI extends javax.swing.JFrame {
         bannerLabel = new JLabel();
         msj1Label = new JLabel();
         msj2Label = new JLabel();
-        comidaLabel = new JLabel();
-        comidaTextField = new JTextField();
+        colorLabel = new JLabel();
+        colorTextField = new JTextField();
         calcularButton = new JButton();
         jScrollPane1 = new JScrollPane();
         resultadoTextArea = new JTextArea();
-        comidaLabel2 = new JLabel();
-        comidaTextField2 = new JTextField();
-        comidaLabel3 = new JLabel();
-        comidaTextField3 = new JTextField();
-        comidaLabel4 = new JLabel();
-        comidaTextField4 = new JTextField();
-        comidaLabel5 = new JLabel();
-        comidaTextField5 = new JTextField();
+        humedadLabel = new JLabel();
+        humedadTextField = new JTextField();
+        temperaturaLabel = new JLabel();
+        temperaturaTextField3 = new JTextField();
+        radiacionLabel = new JLabel();
+        radiacionTextField = new JTextField();
+        concentracionLabel = new JLabel();
+        concentracionTextField = new JTextField();
         salirButton = new JButton();
 
         //======== this ========
@@ -56,7 +56,7 @@ public class PropinaUI extends javax.swing.JFrame {
 
         //======== jPanel1 ========
         {
-            jPanel1.setBorder(new TitledBorder("Calcula la propina"));
+            jPanel1.setBorder(new TitledBorder("Hydroponic health"));
 
             //---- iconoLabel ----
             iconoLabel.setIcon(new ImageIcon(getClass().getResource("/recursos/imagen.png")));
@@ -67,15 +67,13 @@ public class PropinaUI extends javax.swing.JFrame {
             bannerLabel.setForeground(new Color(0, 153, 204));
             bannerLabel.setText("Hidroponia-FIS");
 
-            //---- comidaLabel ----
-            comidaLabel.setText("Color de la planta:");
+            colorLabel.setText("Color de la planta:");
 
-            //---- comidaTextField ----
-            comidaTextField.addActionListener(e -> comidaTextFieldActionPerformed(e));
-            comidaTextField.addKeyListener(new KeyAdapter() {
+            colorTextField.addActionListener(e -> hydroponicTextFieldActionPerformed(e));
+            colorTextField.addKeyListener(new KeyAdapter() {
                 @Override
                 public void keyTyped(KeyEvent e) {
-                    comidaTextFieldKeyTyped(e);
+                    hydroponicTextFieldKeyTyped(e);
                 }
             });
 
@@ -93,51 +91,43 @@ public class PropinaUI extends javax.swing.JFrame {
                 jScrollPane1.setViewportView(resultadoTextArea);
             }
 
-            //---- comidaLabel2 ----
-            comidaLabel2.setText("Humedad:");
+            humedadLabel.setText("Humedad:");
 
-            //---- comidaTextField2 ----
-            comidaTextField2.addActionListener(e -> comidaTextFieldActionPerformed(e));
-            comidaTextField2.addKeyListener(new KeyAdapter() {
+            humedadTextField.addActionListener(e -> hydroponicTextFieldActionPerformed(e));
+            humedadTextField.addKeyListener(new KeyAdapter() {
                 @Override
                 public void keyTyped(KeyEvent e) {
-                    comidaTextFieldKeyTyped(e);
+                    hydroponicTextFieldKeyTyped(e);
                 }
             });
 
-            //---- comidaLabel3 ----
-            comidaLabel3.setText("Temperatura:");
+            temperaturaLabel.setText("Temperatura:");
 
-            //---- comidaTextField3 ----
-            comidaTextField3.addActionListener(e -> comidaTextFieldActionPerformed(e));
-            comidaTextField3.addKeyListener(new KeyAdapter() {
+            temperaturaTextField3.addActionListener(e -> hydroponicTextFieldActionPerformed(e));
+            temperaturaTextField3.addKeyListener(new KeyAdapter() {
                 @Override
                 public void keyTyped(KeyEvent e) {
-                    comidaTextFieldKeyTyped(e);
+                    hydroponicTextFieldKeyTyped(e);
                 }
             });
 
-            //---- comidaLabel4 ----
-            comidaLabel4.setText("Radiacion solar:");
+            radiacionLabel.setText("Radiacion solar:");
 
-            //---- comidaTextField4 ----
-            comidaTextField4.addActionListener(e -> comidaTextFieldActionPerformed(e));
-            comidaTextField4.addKeyListener(new KeyAdapter() {
+            radiacionTextField.addActionListener(e -> hydroponicTextFieldActionPerformed(e));
+            radiacionTextField.addKeyListener(new KeyAdapter() {
                 @Override
                 public void keyTyped(KeyEvent e) {
-                    comidaTextFieldKeyTyped(e);
+                    hydroponicTextFieldKeyTyped(e);
                 }
             });
 
-            //---- comidaLabel5 ----
-            comidaLabel5.setText("Concentracion de nutrientes y minerales:");
+            concentracionLabel.setText("Concentracion de nutrientes y minerales:");
 
-            //---- comidaTextField5 ----
-            comidaTextField5.addActionListener(e -> comidaTextFieldActionPerformed(e));
-            comidaTextField5.addKeyListener(new KeyAdapter() {
+            concentracionTextField.addActionListener(e -> hydroponicTextFieldActionPerformed(e));
+            concentracionTextField.addKeyListener(new KeyAdapter() {
                 @Override
                 public void keyTyped(KeyEvent e) {
-                    comidaTextFieldKeyTyped(e);
+                    hydroponicTextFieldKeyTyped(e);
                 }
             });
 
@@ -161,29 +151,29 @@ public class PropinaUI extends javax.swing.JFrame {
                         .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(comidaLabel4)
+                        .addComponent(radiacionLabel)
                         .addGap(18, 18, 18)
-                        .addComponent(comidaTextField4, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(radiacionTextField, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 284, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup()
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(comidaLabel)
+                                .addComponent(colorLabel)
                                 .addGap(18, 18, 18)
-                                .addComponent(comidaTextField, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE))
+                                .addComponent(colorTextField, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(comidaLabel2)
+                                .addComponent(humedadLabel)
                                 .addGap(18, 18, 18)
-                                .addComponent(comidaTextField2, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE))
+                                .addComponent(humedadTextField, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(comidaLabel3)
+                                .addComponent(temperaturaLabel)
                                 .addGap(18, 18, 18)
-                                .addComponent(comidaTextField3, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE))
+                                .addComponent(temperaturaTextField3, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(comidaLabel5)
+                                .addComponent(concentracionLabel)
                                 .addGap(18, 18, 18)
-                                .addComponent(comidaTextField5, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(concentracionTextField, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(calcularButton)))
                         .addContainerGap(178, Short.MAX_VALUE))
@@ -208,30 +198,30 @@ public class PropinaUI extends javax.swing.JFrame {
                         .addComponent(msj2Label)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                            .addComponent(comidaLabel)
-                            .addComponent(comidaTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                            .addComponent(colorLabel)
+                            .addComponent(colorTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup()
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
-                                .addComponent(comidaLabel2))
-                            .addComponent(comidaTextField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                .addComponent(humedadLabel))
+                            .addComponent(humedadTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup()
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
-                                .addComponent(comidaLabel3))
-                            .addComponent(comidaTextField3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                .addComponent(temperaturaLabel))
+                            .addComponent(temperaturaTextField3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                            .addComponent(comidaTextField4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                            .addComponent(comidaLabel4))
+                            .addComponent(radiacionTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                            .addComponent(radiacionLabel))
                         .addGroup(jPanel1Layout.createParallelGroup()
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
-                                .addComponent(comidaLabel5))
+                                .addComponent(concentracionLabel))
                             .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                .addComponent(comidaTextField5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(concentracionTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addComponent(calcularButton)))
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
@@ -269,11 +259,11 @@ public class PropinaUI extends javax.swing.JFrame {
         setLocationRelativeTo(getOwner());
     }
 
-    private void comidaTextFieldActionPerformed(java.awt.event.ActionEvent evt) {
+    private void hydroponicTextFieldActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
 
-    private void comidaTextFieldKeyTyped(java.awt.event.KeyEvent evt) {
+    private void hydroponicTextFieldKeyTyped(java.awt.event.KeyEvent evt) {
 
         char validar = evt.getKeyChar();
 
@@ -288,15 +278,15 @@ public class PropinaUI extends javax.swing.JFrame {
 
     private void calcularButtonActionPerformed(java.awt.event.ActionEvent evt) {
 
-        double color = Double.parseDouble(comidaTextField.getText().replace(",", "."));
-        double humedad = Double.parseDouble(comidaTextField2.getText().replace(",", "."));
-        double temperatura = Double.parseDouble(comidaTextField3.getText().replace(",", "."));
-        double radiacion = Double.parseDouble(comidaTextField4.getText().replace(",", "."));
-        double concentracion = Double.parseDouble(comidaTextField5.getText().replace(",", "."));
+        double color = Double.parseDouble(colorTextField.getText().replace(",", "."));
+        double humedad = Double.parseDouble(humedadTextField.getText().replace(",", "."));
+        double temperatura = Double.parseDouble(temperaturaTextField3.getText().replace(",", "."));
+        double radiacion = Double.parseDouble(radiacionTextField.getText().replace(",", "."));
+        double concentracion = Double.parseDouble(concentracionTextField.getText().replace(",", "."));
 //        System.out.println(color + " " + humedad + " " + temperatura + " " + radiacion + " " + nutriententes);
 //        Integer servicio = 5;
 
-        resultadoTextArea.setText(resultados.calcularPropina(color,humedad,temperatura,radiacion,concentracion));
+        resultadoTextArea.setText(resultados.calcularSalud(color,humedad,temperatura,radiacion,concentracion));
     }
 
     private void salirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirButtonActionPerformed
@@ -337,18 +327,18 @@ public class PropinaUI extends javax.swing.JFrame {
     private JLabel bannerLabel;
     private JLabel msj1Label;
     private JLabel msj2Label;
-    private JLabel comidaLabel;
-    private JTextField comidaTextField;
+    private JLabel colorLabel;
+    private JTextField colorTextField;
     private JButton calcularButton;
     private JScrollPane jScrollPane1;
     private JTextArea resultadoTextArea;
-    private JLabel comidaLabel2;
-    private JTextField comidaTextField2;
-    private JLabel comidaLabel3;
-    private JTextField comidaTextField3;
-    private JLabel comidaLabel4;
-    private JTextField comidaTextField4;
-    private JLabel comidaLabel5;
-    private JTextField comidaTextField5;
+    private JLabel humedadLabel;
+    private JTextField humedadTextField;
+    private JLabel temperaturaLabel;
+    private JTextField temperaturaTextField3;
+    private JLabel radiacionLabel;
+    private JTextField radiacionTextField;
+    private JLabel concentracionLabel;
+    private JTextField concentracionTextField;
     private JButton salirButton;
 }

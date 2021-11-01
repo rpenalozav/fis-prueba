@@ -12,7 +12,7 @@ public class FIS_Propina {
 
     }
 
-    public String calcularPropina(double color, double humedad, double temperatura, double radiacion, double concentracion) {
+    public String calcularSalud(double color, double humedad, double temperatura, double radiacion, double concentracion) {
 
         // Carga el archivo de lenguaje de control difuso 'FCL'
         String fileName = "src/fis_propina/FCL_hydroponic_health.fcl";
